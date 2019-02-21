@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Triki - UMB - John Suarez</title>
+        <meta name="description" content="Una guía interactiva de primeros pasos para Brackets.">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        
+        <script type="application/javascript">
+        
+            function boton(boton){
+                if(boton == "0"){
+                    var imagen = 'img/X.png';
+			var elemento = document.createElement("img");
+			elemento.setAttribute(src,imagen);
+			var actual = document.getElementById('0');
+			actual.appendChild(elemento);
+                }
+            }
+        
+        </script>
+            
+        	
+        <button style="width: 100px; height: 100px" id="0" onclick="boton(0)"></button>
+        <button style="width: 100px; height: 100px" id="1" onclick="boton(1)"></button>
+        <button style="width: 100px; height: 100px" id="2" onclick="boton(2)"></button>
+        <br>
+        <button style="width: 100px; height: 100px" id="3" onclick="boton(3)"></button>
+        <button style="width: 100px; height: 100px" id="4" onclick="boton(4)"></button>
+        <button style="width: 100px; height: 100px" id="5" onclick="boton(5)" ></button>
+        <br>
+        <button style="width: 100px; height: 100px" id="6" onclick="boton(6)"></button>
+        <button style="width: 100px; height: 100px" id="7" onclick="boton(7)"></button>
+        <button style="width: 100px; height: 100px" id="8" onclick="boton(8)"></button>
+        <br>
+        <label id="33"></label>
+        
+    </body>
+</html>
