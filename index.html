@@ -12,13 +12,9 @@
         
         <script type="application/javascript">
         
-            function boton(boton){
-                if(boton == "0"){
-                    var imagen = 'img/X.png';
-			var elemento = document.createElement("img");
-			elemento.setAttribute(src,imagen);
-			var actual = document.getElementById('0');
-			actual.appendChild(elemento);
+            function boton(id){
+                if(id == "1"){
+                    document.getElementById('0').innerHTML = '<img src="img/X.png" width="80" height="80"/>';
                 }
             }
         
