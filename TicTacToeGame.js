@@ -5,28 +5,28 @@
     var BOARD_SIZE = 9;
 
 // Nivel de dificultad
-    function DifficultyLevel () {
-        Easy, Harder, Expert
+    const DifficultyLevel = {
+        Easy: 'Easy',  Harder: 'Harder', Expert: 'Expert'
     }
 
 // Nivel de dificultad actual
-    mDifficultyLevel = DifficultyLevel.Expert;
+    var mDifficultyLevel = DifficultyLevel.Expert;
 
 //Representacion de jugadas del jugador en el tablero
-    let HUMAN_PLAYER = 'X';
+    var HUMAN_PLAYER = 'X';
 
 //Representacion de jugadas del computador en el tablero
-    let COMPUTER_PLAYER = 'O';
+    var COMPUTER_PLAYER = 'O';
 
 //Representacion de casillas disponibles en el tablero
-    let OPEN_SPOT = ' ';
+    var OPEN_SPOT = ' ';
 
 //Numero aleatorio para siguiente movimiento del computador
     var mRand;
 
     function TicTacToeGame() {
         // Semilla para el generador de numeros aleatorios
-        mRand = Math.floor((Math.random() * (100-1))+1);
+        mRand = Math.floor((Math.random() * (9-1))+1);
 
     }
 
@@ -126,7 +126,7 @@
 //getComputerMove(). Retorna
 //Se obtiene la casilla donde jugara el computador dependiendo de la dificultad
     function getComputerMove() {
-
+        
         var move;
 
 //Si la dificultad es facil
@@ -134,8 +134,9 @@
 
 //Se calcula un movimiento aleatorio disponible
             do {
+                TicTacToeGame();
 
-                move = mRand.nextInt(BOARD_SIZE);
+                move = mRand;
 
             } while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
 
@@ -147,13 +148,13 @@
 
                 if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER) {
 
-                    let curr = mBoard[i];
+                    var curr = mBoard[i];
 
                     mBoard[i] = COMPUTER_PLAYER;
 
                     if (checkForWinner() == 3) {
 
-                        console.log("Computer is moving to " + (i + 1));
+                        console.log("Computer is moving to 1" + (i + 1));
 
                         return i;
 
@@ -167,8 +168,9 @@
 
 // De lo contrario de genera un movimiento aleatorio
             do {
+                TicTacToeGame();
 
-                move = mRand.nextInt(BOARD_SIZE);
+                move = mRand;
 
             } while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
 
@@ -180,13 +182,13 @@
 
                 if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER) {
 
-                    let curr = mBoard[i];
+                    var curr = mBoard[i];
 
                     mBoard[i] = COMPUTER_PLAYER;
 
                     if (checkForWinner() == 3) {
 
-                        console.log("Computer is moving to " + (i + 1));
+                        console.log("Computer is moving to 2" + (i + 1));
 
                         return i;
 
@@ -203,7 +205,7 @@
 
                 if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER) {
 
-                    let curr = mBoard[i]; // Save the current number
+                    var curr = mBoard[i]; // Save the current number
 
                     mBoard[i] = HUMAN_PLAYER;
 
@@ -213,7 +215,7 @@
 
                         setMove(COMPUTER_PLAYER, i);
 
-                        console.log("Computer is moving to " + (i + 1));
+                        console.log("Computer is moving to 3" + (i + 1));
 
                         return i;
 
@@ -227,14 +229,15 @@
 
 //De lo contrario genera un movimiento aleatorio disponible
             do {
+                TicTacToeGame();
 
-                move = mRand.nextInt(BOARD_SIZE);
+                move = mRand;
 
             } while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
 
         }
 
-        console.log("Computer is moving to " + (move + 1));
+        console.log("Computer is moving to 4" + (move + 1));
 
         setMove(COMPUTER_PLAYER, move);
 

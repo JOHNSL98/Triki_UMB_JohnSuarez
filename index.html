@@ -6,34 +6,62 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Triki - UMB - John Suarez</title>
         <meta name="description" content="Una guía interactiva de primeros pasos para Brackets.">
-        <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <script src="TicTacToeGame.js"></script>
         
         <script type="application/javascript">
+            
+            clearBoard();
+            displayBoard();
+            
         
             function boton(id){
-                if(id == "1"){
-                    document.getElementById('0').innerHTML = '<img src="img/X.png" width="80" height="80"/>';
+                if(id == '9'){
+                    clearBoard();
+                    displayBoard();
+                    for(var i = 0; i < 9; i++){
+                        document.getElementById(i).innerHTML = '';
+                    }
+                }else if(checkForWinner() == 0){
+                    document.getElementById(id).innerHTML = '<img src="img/X.png" width="80" height="80"/>';
+                    setMove(HUMAN_PLAYER, id);
+                    var locationcomputer = getComputerMove();
+                    document.getElementById(locationcomputer).innerHTML = '<img src="img/O.png" width="80" height="80"/>';
+                    displayBoard();
+                    if(checkForWinner() == 1){
+                    document.getElementById(33).innerHTML = "Empate!";
+                    } else if(checkForWinner() == 2){
+                        document.getElementById(33).innerHTML = "Ganaste!";
+                    } else if(checkForWinner() == 3){
+                        document.getElementById(33).innerHTML = "Perdiste!";
+                    }
                 }
             }
         
         </script>
-            
-        	
-        <button style="width: 100px; height: 100px" id="0" onclick="boton(0)"></button>
-        <button style="width: 100px; height: 100px" id="1" onclick="boton(1)"></button>
-        <button style="width: 100px; height: 100px" id="2" onclick="boton(2)"></button>
-        <br>
-        <button style="width: 100px; height: 100px" id="3" onclick="boton(3)"></button>
-        <button style="width: 100px; height: 100px" id="4" onclick="boton(4)"></button>
-        <button style="width: 100px; height: 100px" id="5" onclick="boton(5)" ></button>
-        <br>
-        <button style="width: 100px; height: 100px" id="6" onclick="boton(6)"></button>
-        <button style="width: 100px; height: 100px" id="7" onclick="boton(7)"></button>
-        <button style="width: 100px; height: 100px" id="8" onclick="boton(8)"></button>
-        <br>
-        <label id="33"></label>
-        
+        <center>
+            <font color="red" face="Comic Sans MS">
+                <h1 size="15">Triki_UMB_JohnSuarez</h1>
+            </font>
+            <br>
+            <br>
+            <button style="width: 100px; height: 100px" id="0" onclick="boton(0)"></button>
+            <button style="width: 100px; height: 100px" id="1" onclick="boton(1)"></button>
+            <button style="width: 100px; height: 100px" id="2" onclick="boton(2)"></button>
+            <br>
+            <button style="width: 100px; height: 100px" id="3" onclick="boton(3)"></button>
+            <button style="width: 100px; height: 100px" id="4" onclick="boton(4)"></button>
+            <button style="width: 100px; height: 100px" id="5" onclick="boton(5)" ></button>
+            <br>
+            <button style="width: 100px; height: 100px" id="6" onclick="boton(6)"></button>
+            <button style="width: 100px; height: 100px" id="7" onclick="boton(7)"></button>
+            <button style="width: 100px; height: 100px" id="8" onclick="boton(8)"></button>
+            <br>
+        </center>
+        <font color="blue" face="Comic Sans MS">
+                <h1 id = "33" size="10"></h1>
+        </font>
+        <button style="width: 100px; height: 100px" id="0" onclick="boton(9)">Reiniciar juego</button>
     </body>
 </html>

@@ -149,7 +149,9 @@ public class TicTacToeGame {
 //Se calcula un movimiento aleatorio disponible
             do {
 
-                move = mRand.nextInt(BOARD_SIZE);
+                TicTacToeGame();
+
+                move = mRand;
 
             } while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
 
@@ -181,8 +183,9 @@ public class TicTacToeGame {
 
 // De lo contrario de genera un movimiento aleatorio
             do {
+                TicTacToeGame();
 
-                move = mRand.nextInt(BOARD_SIZE);
+                move = mRand;
 
             } while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
 
@@ -241,8 +244,9 @@ public class TicTacToeGame {
 
 //De lo contrario genera un movimiento aleatorio disponible
             do {
+                TicTacToeGame();
 
-                move = mRand.nextInt(BOARD_SIZE);
+                move = mRand;
 
             } while (mBoard[move] == HUMAN_PLAYER || mBoard[move] == COMPUTER_PLAYER);
 
