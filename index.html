@@ -20,23 +20,30 @@
                 if(id == '9'){
                     clearBoard();
                     displayBoard();
+                    document.getElementById(10).innerHTML = '';
                     for(var i = 0; i < 9; i++){
                         document.getElementById(i).innerHTML = '';
                     }
-                }else if(checkForWinner() == 0){
-                    document.getElementById(id).innerHTML = '<img src="img/X.png" width="80" height="80"/>';
-                    setMove(HUMAN_PLAYER, id);
-                    var locationcomputer = getComputerMove();
-                    document.getElementById(locationcomputer).innerHTML = '<img src="img/O.png" width="80" height="80"/>';
-                    displayBoard();
-                    if(checkForWinner() == 1){
-                    document.getElementById(33).innerHTML = "Empate!";
-                    } else if(checkForWinner() == 2){
-                        document.getElementById(33).innerHTML = "Ganaste!";
-                    } else if(checkForWinner() == 3){
-                        document.getElementById(33).innerHTML = "Perdiste!";
+                } else {
+                    var locationhuman= setMove(HUMAN_PLAYER, id);
+                    if(locationhuman == true){
+                        document.getElementById(id).innerHTML = '<img src="img/X.png" width="80" height="80"/>';
+                        if(checkForWinner() == 0) {
+                            var locationcomputer = getComputerMove();
+                            document.getElementById(locationcomputer).innerHTML = '<img src="img/O.png" width="80" height="80"/>';
+                        }
+                        if(checkForWinner() == 1) {
+                            document.getElementById(10).innerHTML = "Empate!";
+                        }
+                        if(checkForWinner() == 2) {
+                            document.getElementById(10).innerHTML = "Ganaste!";
+                        }if(checkForWinner() == 3) {
+                            document.getElementById(10).innerHTML = "Perdiste!";
+                        }
+                        displayBoard();
                     }
                 }
+               
             }
         
         </script>
@@ -60,8 +67,8 @@
             <br>
         </center>
         <font color="blue" face="Comic Sans MS">
-                <h1 id = "33" size="10"></h1>
+                <h1 id = "10" size="10"></h1>
         </font>
-        <button style="width: 100px; height: 100px" id="0" onclick="boton(9)">Reiniciar juego</button>
+        <button style="width: 100px; height: 100px" id="9" onclick="boton(9)">Reiniciar juego</button>
     </body>
 </html>

@@ -10,7 +10,7 @@
     }
 
 // Nivel de dificultad actual
-    var mDifficultyLevel = DifficultyLevel.Expert;
+    var mDifficultyLevel = DifficultyLevel.Easy;
 
 //Representacion de jugadas del jugador en el tablero
     var HUMAN_PLAYER = 'X';
@@ -188,7 +188,7 @@
 
                     if (checkForWinner() == 3) {
 
-                        console.log("Computer is moving to 2" + (i + 1));
+                        console.log("Computer is moving to" + (i + 1));
 
                         return i;
 
@@ -215,7 +215,7 @@
 
                         setMove(COMPUTER_PLAYER, i);
 
-                        console.log("Computer is moving to 3" + (i + 1));
+                        console.log("Computer is moving to" + (i + 1));
 
                         return i;
 
@@ -237,7 +237,7 @@
 
         }
 
-        console.log("Computer is moving to 4" + (move + 1));
+        console.log("Computer is moving to" + (move + 1));
 
         setMove(COMPUTER_PLAYER, move);
 
